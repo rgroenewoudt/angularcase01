@@ -1,0 +1,10 @@
+<div *ngIf="data | async as item">
+  <h4>{{item.title}}</h4>
+  <p class="text-muted">
+    <span *ngFor="let maker of item.principalMakers">{{maker.name}}</span>
+  </p>
+  <p>{{item.description}}</p>
+  <p>{{item.plaqueDescriptionDutch}}</p>
+
+  <img [src]="item.webImage.url">
+</div>

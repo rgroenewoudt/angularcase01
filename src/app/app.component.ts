@@ -1,3 +1,5 @@
+import { Observable } from 'rxjs';
+import { DataService } from './services/data.service';
 import { Component } from '@angular/core';
 
 @Component({
@@ -6,5 +8,17 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'app';
+  searchResults: Observable<RijksmuseumApi.ArtObject[]>;
+  selected: RijksmuseumApi.ArtObject;
+
+  constructor(private dataService: DataService) {
+  }
+
+  search(q: string) {
+    this.searchResults = this.dataService.search(q);
+  }
+
+  onSelected(item: RijksmuseumApi.ArtObject) {
+    this.selected = item;
+  }
 }

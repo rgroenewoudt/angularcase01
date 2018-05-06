@@ -1,0 +1,16 @@
+<div *ngIf="data | async as list">
+  <p class="lead" *ngIf="list && list.length == 0">Geen resultaten gevonden.</p>
+  <div *ngFor="let item of list"
+      class="card box-shadow text-center mb-3"
+      [ngClass]="{'bg-light': item == selected}"
+      (click)="selectItem(item)">
+      <img class="card-img-top"
+      *ngIf="item.headerImage.url"
+      [src]="item.headerImage.url">
+      <div class="card-body">
+        <div class="mb-1 text-muted">{{item.principalOrFirstMaker}}</div>
+        <p class="card-text mb-auto">{{item.longTitle}}</p>
+      </div>
+  </div>
+</div>
+<ng-template #loading>Bezig met laden...</ng-template>

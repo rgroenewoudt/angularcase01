@@ -1,0 +1,14 @@
+.card {
+    cursor: pointer;
+    align-items: center;
+}
+
+.card img {
+    max-width: 300px;
+    max-height: 200px;
+    object-fit: contain;
+}
+
+.loading {
+    transition: all 0.5s ease;
+}
